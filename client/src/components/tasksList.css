@@ -3,6 +3,7 @@
     border-radius: 4px;
     margin: 20px;
     width: 20%;
+    overflow: scroll;
 }
 
 .tasksHeader{
@@ -14,6 +15,11 @@
 }
 
 .tasksInput{
-    width: 95%;
+    width: 85%;
     background: lightgrey;
+}
+
+.taskItem{
+    border: 1px solid white;
+    color: white;
 }
