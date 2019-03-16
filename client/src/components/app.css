@@ -1,0 +1,21 @@
+.wholeApp{
+    background: linear-gradient(#090979, #00d4ff);
+}
+
+.topSection{
+    display: flex;
+    border: 1px solid black;
+    height: 300px;
+}
+
+.bottomSection{
+    display: flex;
+    border: 1px solid black;
+    height: 400px;   
+}
+
+.date{
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+}

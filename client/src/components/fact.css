@@ -1,0 +1,14 @@
+.factStyle{
+    border: 1px solid white;    
+    width: 25%;
+    border-radius: 4px;
+    margin: 20px;
+}
+
+.factHeader{
+    color: white;
+}
+
+.headerDiv{
+    border: 1px solid white;
+}

@@ -1,0 +1,19 @@
+.tasksStyle{
+    border: 1px solid white;
+    border-radius: 4px;
+    margin: 20px;
+    width: 20%;
+}
+
+.tasksHeader{
+    border: 1px solid white;
+}
+
+.tasksHeaderText{
+    color: white;
+}
+
+.tasksInput{
+    width: 95%;
+    background: lightgrey;
+}

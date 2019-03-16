@@ -1,0 +1,19 @@
+.mediaStyle{
+    border: 1px solid white;
+    border-radius: 4px;
+    margin: 20px;
+    width: 20%;
+}
+
+.mediaHeader{
+    border: 1px solid white;
+}
+
+.mediaHeaderText{
+    color: white;
+}
+
+.mediaInput{
+    width: 95%;
+    background: lightgrey;
+}

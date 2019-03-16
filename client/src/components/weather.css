@@ -1,0 +1,14 @@
+.weatherStyle{
+    border: 1px solid white;
+    width: 15%;
+    border-radius: 4px;
+    margin: 20px;
+}
+
+.weatherHeader{
+  color: white;
+}
+
+.headerBox{
+    border: 1px solid white;
+}
