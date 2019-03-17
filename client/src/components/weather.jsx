@@ -34,25 +34,35 @@ class Weather extends React.Component{
       }
 
     render(){
+      if(this.state.fahrenheit){
+      var temperature = this.state.fahrenheit + '°F';
+      }
         return(
         <div className={weather.weatherStyle}>
           <div className={weather.headerBox}>
-          <h3 className={weather.weatherHeader}> Weather </h3>
-          <img src="https://s3.us-east-2.amazonaws.com/chrismvp/weather.png" className={weather.image} />
+            <div>
+             <h3 className={weather.weatherHeader}> Weather </h3>
+            </div>
+            <div>
+             <img src="https://s3.us-east-2.amazonaws.com/chrismvp/weather.png" className={weather.image} />
+             </div>
           </div>
+
           <div>
-          <span className={weather.zipCode}>Zip Code:</span> <input type="text" onChange={this.handleZipCode}></input>
+            <span className={weather.zipCode}>Zip Code:</span> <input type="text" onChange={this.handleZipCode} className={weather.zipCodeInput}></input>
           </div>
+
           <div>
-          <span className={weather.country}>Country :</span> <input type="text" onChange={this.handleCountry}></input>
+            <span className={weather.country}>Country :</span> <input type="text" onChange={this.handleCountry} className={weather.countryInput}></input>
+            <input type="submit" value = "Go" onClick={this.getWeather} className={weather.goButton}></input>
           </div>
-          <input type="submit" onClick={this.getWeather}></input>
+
           <div>
              <div> 
-             <span className={weather.city}>City: {this.state.city}</span> 
+             <span ><h3 className={weather.city}>{this.state.city} </h3></span> 
              </div>
              <div>
-             <span className={weather.temperature}>Temperature(in °F): {this.state.fahrenheit}</span> 
+             <span ><h4 className={weather.temperature}>{temperature}</h4></span> 
              </div>
           </div>
         </div>
