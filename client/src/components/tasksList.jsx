@@ -12,6 +12,7 @@ class TasksList extends React.Component{
     this.getTasks = this.getTasks.bind(this);
     this.addTask = this.addTask.bind(this);
     this.submitTask = this.submitTask.bind(this);
+    this.deleteTasks = this.deleteTasks.bind(this);
     }
     
     componentDidMount(){
@@ -44,15 +45,27 @@ class TasksList extends React.Component{
         })
     }
 
+    deleteTasks(){
+        axios.delete('/tasks')
+        .then(() => {this.getTasks()})
+        .catch((err) => {
+            console.log(err);
+        }) 
+    }
+
     render(){
          
         var list = this.state.allTasks.map(task => 
-            <div className={tasks.taskItem} > {task.id} {task.tasks} </div>  
+            <div className={tasks.taskItem} > {task.tasks} 
+            <input type="submit" value="Edit" ></input>
+            <input type="submit" value="Delete"></input>
+            </div>  
         );
         return (
           <div className={tasks.tasksStyle}>
           <div className={tasks.tasksHeader}>
             <h3 className={tasks.tasksHeaderText}> Tasks </h3>
+            <input type="submit" value="Clear" onClick = {this.deleteTasks}></input>
           </div>
           <input type="text" className={tasks.tasksInput} onChange = {this.addTask}></input>
           <input type="submit" value="Add" onClick = {this.submitTask}></input>
