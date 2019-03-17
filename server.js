@@ -39,6 +39,16 @@ app.get('/media', (req, res) => {
     })
 })
 
+app.get('/people', (req, res) => {
+    db.getPeople((err, data) => {
+       if(err){
+           res.status(404).send(err);
+           return;
+       }
+       res.status(200).send(data);
+    })
+})
+
 app.post('/tasks', (req, res) => {
     console.log('HERE', req.body);
     db.addTasks(req.body.tasks, (err, data) => {
@@ -75,6 +85,18 @@ app.post('/media', (req, res) => {
     })
 })
 
+app.post('/people', (req, res) => {
+    console.log('HERE', req.body);
+    db.addPeople(req.body.people, (err, data) => {
+        if(err){
+            console.log(err);
+            
+            return;
+        }
+        res.status(201).send(data);
+    })
+})
+
 app.delete('/tasks', (req, res) => {
     db.deleteTasks((err, data) => {
         if(err){
@@ -95,5 +117,14 @@ app.delete('/media', (req, res) => {
     })
 })
 
+app.delete('/people', (req, res) => {
+    db.deletePeople((err, data) => {
+        if(err){
+            console.log(err);
+            return;
+        }
+        res.status(201).send(data);
+    })
+})
 
 app.listen(port, console.log('Listening at 3000!'));

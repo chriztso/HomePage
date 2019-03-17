@@ -42,6 +42,18 @@ var getMedia = (callback) => {
     })
 }
 
+
+var getPeople = (callback) => {
+    var query = 'SELECT * FROM people';
+    connection.query(query, (err, data) => {
+       if(err){
+           callback(err, null);
+           return;
+       }
+       callback(null, data);
+    })
+}
+
 var addTasks = (task, callback) => {
   
     var query = `INSERT INTO tasks (tasks) VALUES ("${task}")`;
@@ -78,6 +90,17 @@ var addMedia = (media, callback) => {
    })
 }
 
+var addPeople = (person, callback) => {
+  
+    var query = `INSERT INTO people (people) VALUES ("${person}")`;
+    connection.query(query, (err, data) => {
+       if(err){
+           callback(err, null);
+           return;
+       }
+       callback(null, data);
+   })
+}
 
 var deleteTasks = (callback) => {
     var query = 'DELETE FROM tasks';
@@ -101,6 +124,16 @@ var deleteMedia = (callback) => {
     })
 }
 
+var deletePeople = (callback) => {
+    var query = 'DELETE FROM people';
+    connection.query(query, (err, data) => {
+        if(err){
+            callback(err, null);
+            return;
+        }
+        callback(null, data);
+    })
+}
 
 exports.addTasks = addTasks;
 exports.getTasks = getTasks;
@@ -110,3 +143,6 @@ exports.deleteTasks = deleteTasks;
 exports.getMedia = getMedia;
 exports.addMedia = addMedia;
 exports.deleteMedia = deleteMedia;
+exports.getPeople = getPeople;
+exports.addPeople = addPeople;
+exports.deletePeople = deletePeople;
