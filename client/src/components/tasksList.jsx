@@ -64,11 +64,18 @@ class TasksList extends React.Component{
         return (
           <div className={tasks.tasksStyle}>
           <div className={tasks.tasksHeader}>
+          <div>
             <h3 className={tasks.tasksHeaderText}> Tasks </h3>
-            <input type="submit" value="Clear" onClick = {this.deleteTasks}></input>
+          </div>  
+          <div>
+            <img src="https://s3.us-east-2.amazonaws.com/chrismvp/tasks.png" className={tasks.image}/> 
+          </div> 
+          <div>
+            <input type="submit" value="x" onClick = {this.deleteTasks}></input>
+          </div>  
           </div>
           <input type="text" className={tasks.tasksInput} onChange = {this.addTask}></input>
-          <input type="submit" value="Add" onClick = {this.submitTask}></input>
+          <input type="submit" value="+" onClick = {this.submitTask} className={tasks.addButton}></input>
           <div>
              {list}
           </div>

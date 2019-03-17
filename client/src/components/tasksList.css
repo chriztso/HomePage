@@ -7,10 +7,13 @@
 }
 
 .tasksHeader{
+    display: flex;
+    flex-direction: row;
     border: 1px solid white;
 }
 
 .tasksHeaderText{
+    padding-left: 10px;
     color: white;
 }
 
@@ -23,3 +26,15 @@
     border: 1px solid white;
     color: white;
 }
+
+.image{
+    padding-left: 10px;
+    padding-top: 10px;
+    height: 50px;
+    width: 50px;
+}
+
+.addButton{
+    border-radius: 4px;
+}
+
