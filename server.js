@@ -53,4 +53,15 @@ app.post('/music', (req, res) => {
     })
 })
 
+app.delete('/tasks', (req, res) => {
+    db.deleteTasks((err, data) => {
+        if(err){
+            console.log(err);
+            return;
+        }
+        res.status(201).send(data);
+    })
+})
+
+
 app.listen(port, console.log('Listening at 3000!'));
