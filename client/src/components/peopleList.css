@@ -22,3 +22,8 @@
     width: 50px;
     height: 50px;
 }
+
+.peopleItem{
+    border: 1px solid white;
+    color: white;
+}
