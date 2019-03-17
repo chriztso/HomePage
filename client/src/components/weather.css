@@ -12,3 +12,19 @@
 .headerBox{
     border: 1px solid white;
 }
+
+.zipCode{
+  color: white;
+}
+
+.country{
+  color: white;
+}
+
+.city{
+  color: white;
+}
+
+.temperature{
+  color: white;
+}
