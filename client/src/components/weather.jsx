@@ -38,6 +38,7 @@ class Weather extends React.Component{
         <div className={weather.weatherStyle}>
           <div className={weather.headerBox}>
           <h3 className={weather.weatherHeader}> Weather </h3>
+          <img src="https://s3.us-east-2.amazonaws.com/chrismvp/weather.png" className={weather.image} />
           </div>
           <div>
           <span className={weather.zipCode}>Zip Code:</span> <input type="text" onChange={this.handleZipCode}></input>
