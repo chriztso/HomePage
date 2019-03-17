@@ -20,7 +20,7 @@ app.get('/tasks', (req, res) => {
 })
 
 app.get('/music', (req, res) => {
-    db.getTasks((err, data) => {
+    db.getMusic((err, data) => {
        if(err){
            res.status(404).send(err);
            return;
@@ -32,6 +32,18 @@ app.get('/music', (req, res) => {
 app.post('/tasks', (req, res) => {
     console.log('HERE', req.body);
     db.addTasks(req.body.tasks, (err, data) => {
+        if(err){
+            console.log(err);
+            
+            return;
+        }
+        res.status(201).send(data);
+    })
+})
+
+app.post('/music', (req, res) => {
+    console.log('HERE', req.body);
+    db.addMusic(req.body.music, (err, data) => {
         if(err){
             console.log(err);
             

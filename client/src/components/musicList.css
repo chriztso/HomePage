@@ -1,0 +1,25 @@
+.musicStyle{
+    border: 1px solid white;
+    border-radius: 4px;
+    margin: 20px;
+    width: 20%;
+    overflow: scroll;
+}
+
+.musicHeader{
+    border: 1px solid white;
+}
+
+.musicHeaderText{
+    color: white;
+}
+
+.musicInput{
+    width: 85%;
+    background: lightgrey;
+}
+
+.musicItem{
+    border: 1px solid white;
+    color: white;
+}
