@@ -29,6 +29,16 @@ app.get('/music', (req, res) => {
     })
 })
 
+app.get('/media', (req, res) => {
+    db.getMedia((err, data) => {
+       if(err){
+           res.status(404).send(err);
+           return;
+       }
+       res.status(200).send(data);
+    })
+})
+
 app.post('/tasks', (req, res) => {
     console.log('HERE', req.body);
     db.addTasks(req.body.tasks, (err, data) => {
@@ -53,8 +63,30 @@ app.post('/music', (req, res) => {
     })
 })
 
+app.post('/media', (req, res) => {
+    console.log('HERE', req.body);
+    db.addMedia(req.body.media, (err, data) => {
+        if(err){
+            console.log(err);
+            
+            return;
+        }
+        res.status(201).send(data);
+    })
+})
+
 app.delete('/tasks', (req, res) => {
     db.deleteTasks((err, data) => {
+        if(err){
+            console.log(err);
+            return;
+        }
+        res.status(201).send(data);
+    })
+})
+
+app.delete('/media', (req, res) => {
+    db.deleteMedia((err, data) => {
         if(err){
             console.log(err);
             return;

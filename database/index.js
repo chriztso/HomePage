@@ -31,6 +31,16 @@ var getMusic = (callback) => {
     })
 }
 
+var getMedia = (callback) => {
+    var query = 'SELECT * FROM media';
+    connection.query(query, (err, data) => {
+       if(err){
+           callback(err, null);
+           return;
+       }
+       callback(null, data);
+    })
+}
 
 var addTasks = (task, callback) => {
   
@@ -44,6 +54,59 @@ var addTasks = (task, callback) => {
    })
 }
 
+var addMusic = (music, callback) => {
+  
+    var query = `INSERT INTO music (music) VALUES ("${music}")`;
+    connection.query(query, (err, data) => {
+       if(err){
+           callback(err, null);
+           return;
+       }
+       callback(null, data);
+   })
+}
+
+var addMedia = (media, callback) => {
+  
+    var query = `INSERT INTO media (media) VALUES ("${media}")`;
+    connection.query(query, (err, data) => {
+       if(err){
+           callback(err, null);
+           return;
+       }
+       callback(null, data);
+   })
+}
+
+
+var deleteTasks = (callback) => {
+    var query = 'DELETE FROM tasks';
+    connection.query(query, (err, data) => {
+        if(err){
+            callback(err, null);
+            return;
+        }
+        callback(null, data);
+    })
+}
+
+var deleteMedia = (callback) => {
+    var query = 'DELETE FROM media';
+    connection.query(query, (err, data) => {
+        if(err){
+            callback(err, null);
+            return;
+        }
+        callback(null, data);
+    })
+}
+
+
 exports.addTasks = addTasks;
 exports.getTasks = getTasks;
 exports.getMusic = getMusic;
+exports.addMusic = addMusic;
+exports.deleteTasks = deleteTasks;
+exports.getMedia = getMedia;
+exports.addMedia = addMedia;
+exports.deleteMedia = deleteMedia;
