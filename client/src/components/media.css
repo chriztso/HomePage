@@ -34,9 +34,26 @@
 .mediaItem{
     border: 1px solid white;
     color: white;
+    padding: 10px; 
+    display: flex;
+    flex-direction: row;
 }
 
 .addButton{
     border-radius: 4px;
     background-color: yellow;
+}
+
+.text{
+    width: 50%;
+}
+
+.Buttons{
+    position: relative; 
+    left: 70px;
+}
+
+.clearAll{
+    position: relative;
+    left: 20px;
 }

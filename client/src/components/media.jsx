@@ -54,10 +54,15 @@ class MediaList extends React.Component{
         }) 
     }  
     render(){
-      var list = this.state.allMedia.map(media => 
-        <div className={media.mediaItem} > {media.media} 
-        <input type="submit" value="Edit" ></input>
-        <input type="submit" value="Delete"></input>
+      var list = this.state.allMedia.map(mediaOne => 
+        <div className={media.mediaItem} > 
+          <div className={media.text}>
+            {mediaOne.media} 
+          </div>  
+          <span className={media.Buttons}>
+           <input type="submit" value="-" ></input>
+           <input type="submit" value="+"></input>
+          </span>
         </div>  
     );
      return (
@@ -68,6 +73,8 @@ class MediaList extends React.Component{
             </div>
             <div>
               <img src="https://s3.us-east-2.amazonaws.com/chrismvp/video.png" className={media.image}/>
+            </div>
+            <div className={media.clearAll}>
               <input type="submit" value="x" onClick = {this.deleteMedia}></input>
             </div>
           </div>
