@@ -1,15 +1,18 @@
-.memoryStyle{
-    border: 1px solid white;    
+.memoryStyle{   
     width: 40%;
     border-radius: 4px;
-    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
 }
 
 .memoryImage{
-    border: 1px solid white;
+    border: 2px solid white;
+    border-radius: 4px;
     padding: 10px;
-    width: 220px;
-    height: 220px;
+    margin-right: 10px;
+    width: 230px;
+    height: 230px;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
