@@ -56,9 +56,14 @@ class PeopleList extends React.Component{
   
   render(){
       var list = this.state.allPeople.map(person => 
-        <div className={people.peopleItem} > {person.people} 
-        <input type="submit" value="Edit" ></input>
-        <input type="submit" value="Delete"></input>
+        <div className={people.peopleItem} >
+        <div className={people.text}>
+         {person.people} 
+        </div>
+        <span className={people.Buttons}>
+          <input type="submit" value="-" ></input>
+          <input type="submit" value="x"></input>
+        </span>
         </div>  
     );
         return (
@@ -67,10 +72,15 @@ class PeopleList extends React.Component{
             <div>
               <h3 className={people.peopleHeaderText}> To Connect With </h3>
             </div>
+
             <div>  
               <img src="https://s3.us-east-2.amazonaws.com/chrismvp/people.png" className={people.image}/>
+            </div>
+
+            <div className={people.clearAll}>  
               <input type="submit" value="x" onClick = {this.deletePeople}></input>
             </div>
+
           </div>
           <input type="text" className = {people.peopleInput} onChange={this.addPeople}></input>
           <input type="submit" value="+" onClick={this.submitPeople} className={people.addButton}></input>

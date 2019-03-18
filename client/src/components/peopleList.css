@@ -31,9 +31,27 @@
 .peopleItem{
     border: 1px solid white;
     color: white;
+    padding: 10px;
+    overflow: scroll;
+    display: flex; 
+    flex-direction: row;
 }
 
 .addButton{
     border-radius: 4px;
     background-color: yellow;
+}
+
+.Buttons{
+    position: relative; 
+    left: 70px;
+}
+
+.text{
+    width: 50%;
+}
+
+.clearAll{
+    position: relative;
+    left: 30px;
 }
