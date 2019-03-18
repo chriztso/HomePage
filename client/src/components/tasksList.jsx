@@ -56,23 +56,32 @@ class TasksList extends React.Component{
     render(){
          
         var list = this.state.allTasks.map(task => 
-            <div className={tasks.taskItem} > {task.tasks} 
-            <input type="submit" value="Edit" ></input>
-            <input type="submit" value="Delete"></input>
+            <div className={tasks.taskItem} > 
+            <div className={tasks.text}>
+              {task.tasks} 
+            </div>
+              <span className={tasks.Buttons}>
+                <input type="submit" value="-" ></input>
+                <input type="submit" value="x"></input>
+              </span>
             </div>  
         );
         return (
           <div className={tasks.tasksStyle}>
           <div className={tasks.tasksHeader}>
+
           <div>
             <h3 className={tasks.tasksHeaderText}> Tasks </h3>
           </div>  
+
           <div>
             <img src="https://s3.us-east-2.amazonaws.com/chrismvp/tasks.png" className={tasks.image}/> 
           </div> 
-          <div>
+
+          <div className={tasks.clearAll}>
             <input type="submit" value="x" onClick = {this.deleteTasks}></input>
           </div>  
+
           </div>
           <input type="text" className={tasks.tasksInput} onChange = {this.addTask}></input>
           <input type="submit" value="+" onClick = {this.submitTask} className={tasks.addButton}></input>

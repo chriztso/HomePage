@@ -18,7 +18,7 @@
 }
 
 .tasksInput{
-    width: 85%;
+    width: 75%;
     border-radius:4px;
     margin-left: 10px;
     margin-top: 10px;
@@ -27,13 +27,17 @@
 .taskItem{
     border: 1px solid white;
     color: white;
+    padding: 10px;
+    overflow: scroll;
+    display: flex; 
+    flex-direction: row;
 }
 
 .image{
     padding-left: 10px;
     padding-top: 10px;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
 }
 
 .addButton{
@@ -41,3 +45,16 @@
     background-color: yellow;
 }
 
+.Buttons{
+    position: relative; 
+    left: 70px;
+}
+
+.text{
+    width: 50%;
+}
+
+.clearAll{
+    position: relative;
+    left: 110px;
+}
