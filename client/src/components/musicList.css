@@ -1,5 +1,5 @@
 .musicStyle{
-    border: 1px solid white;
+    border: 2px solid white;
     border-radius: 4px;
     margin: 20px;
     width: 20%;
@@ -22,6 +22,7 @@
     border-radius: 4px;
     margin-left: 10px;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .musicItem{
@@ -45,10 +46,14 @@
 
 .clearAll{
     position: relative; 
-    left: 115px;
+    left: 118px;
 }
 
 .Buttons{
     position: relative; 
     left: 140px;
+}
+
+.text{
+    width: 20%;
 }
