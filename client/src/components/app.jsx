@@ -33,9 +33,6 @@ class App extends React.Component{
           <Weather />
           <Facts />
           <Memory />
-          <div>
-          <input type="submit" value="Feeling bored?" />
-          </div>
         </div>   
         <div className={app.bottomSection}> 
           <TasksList />
