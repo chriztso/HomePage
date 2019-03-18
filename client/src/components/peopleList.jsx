@@ -64,12 +64,16 @@ class PeopleList extends React.Component{
         return (
           <div className={people.peopleStyle}>
           <div className={people.peopleHeader}>
-            <h3 className={people.peopleHeaderText}> People To Connect To </h3>
-            <input type="submit" value="Clear" onClick = {this.deletePeople}></input>
-            <img src="https://s3.us-east-2.amazonaws.com/chrismvp/people.png" className={people.image}/>
+            <div>
+              <h3 className={people.peopleHeaderText}> To Connect With </h3>
+            </div>
+            <div>  
+              <img src="https://s3.us-east-2.amazonaws.com/chrismvp/people.png" className={people.image}/>
+              <input type="submit" value="x" onClick = {this.deletePeople}></input>
+            </div>
           </div>
           <input type="text" className = {people.peopleInput} onChange={this.addPeople}></input>
-          <input type="submit" value="Add" onClick={this.submitPeople}></input>
+          <input type="submit" value="+" onClick={this.submitPeople} className={people.addButton}></input>
           <div>
             {list}
           </div>  
