@@ -1,5 +1,5 @@
 .weatherStyle{
-    border: 1px solid white;
+    border: 2px solid white;
     width: 15%;
     border-radius: 4px;
     margin: 20px;
@@ -56,4 +56,10 @@
 .goButton{
   margin-left: 10px;
   border-radius: 4px;
+}
+
+.goButton{
+  margin-top: 5px;
+  position: relative; 
+  left: 65px;
 }

@@ -53,10 +53,12 @@ class Weather extends React.Component{
           </div>
 
           <div>
-            <span className={weather.country}>Country :</span> <input type="text" onChange={this.handleCountry} className={weather.countryInput}></input>
+            <span className={weather.country}>Country:</span> <input type="text" onChange={this.handleCountry} className={weather.countryInput}></input>
+          </div>
+         
+          <div className={weather.goButton}> 
             <input type="submit" value = "Go" onClick={this.getWeather} className={weather.goButton}></input>
           </div>
-
           <div>
              <div> 
              <span ><h3 className={weather.city}>{this.state.city} </h3></span> 
