@@ -11,7 +11,8 @@ class MusicList extends React.Component{
         }
     this.getMusic = this.getMusic.bind(this); 
     this.addMusic = this.addMusic.bind(this);  
-    this.submitMusic = this.submitMusic.bind(this);    
+    this.submitMusic = this.submitMusic.bind(this); 
+    this.deleteMusic = this.deleteMusic.bind(this);    
     }
     
 componentDidMount(){
@@ -43,10 +44,26 @@ submitMusic(){
             console.log(err);
     })
 }
+
+deleteMusic(){
+  axios.delete('/music')
+  .then(() => {this.getMusic()})
+  .catch((err) => {
+      console.log(err);
+  }) 
+}   
    
     render(){
-        var list = this.state.allMusic.map(music => 
-            <div className={music.musicItem} > {music.id} {music.music} </div>  
+        var list = this.state.allMusic.map(musics => 
+            <div className={music.musicItem} > 
+              <div className={music.text}>
+                {musics.music} 
+              </div>
+              <span className={music.Buttons}>
+               <input type="submit" value="-" ></input>
+               <input type="submit" value="x"></input>
+              </span>
+            </div>  
         );
         return (
           <div className={music.musicStyle}>
@@ -57,6 +74,9 @@ submitMusic(){
             <div>
               <img src="https://s3.us-east-2.amazonaws.com/chrismvp/headphones.png" className={music.image}/>
             </div>
+            <div className={music.clearAll}>
+              <input type="submit" value="x" onClick = {this.deleteMusic}></input>
+            </div>  
           </div>
           <input type="text" className={music.musicInput} onChange={this.addMusic}></input>
           <input type="submit" value="+" onClick = {this.submitMusic} className={music.addButton}></input>
