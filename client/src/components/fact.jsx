@@ -32,24 +32,36 @@ class Facts extends React.Component{
           <div className={fact.headerDiv}>
           <h3 className={fact.factHeader}>Did You Know?</h3>
           </div>
-          <div > 
-            <span className={fact.trivia}>Question: {this.state.question1}</span>
+          <div className={fact.factDiv}>
+            <div > 
+              <span className={fact.trivia}><b>Question: </b>{this.state.question1}</span>
+            </div>
+
+            <div> 
+              <span className={fact.trivia}><b>Answer: </b>{this.state.answer1}</span>
+            </div>
           </div>
-          <div> 
-            <span className={fact.trivia}>Answer: {this.state.answer1}</span>
+
+          <div className={fact.factDiv}>
+            <div > 
+              <span className={fact.trivia}><b>Question: </b>{this.state.question2}</span>
+            </div>
+
+            <div> 
+              <span className={fact.trivia}><b>Answer: </b>{this.state.answer2}</span>
+            </div>
           </div>
-          <div > 
-            <span className={fact.trivia}>Question: {this.state.question2}</span>
+
+          <div className={fact.factDiv}>
+            <div > 
+              <span className={fact.trivia}><b>Question: </b>{this.state.question3}</span>
+            </div>
+
+            <div> 
+              <span className={fact.trivia}><b>Answer: </b>{this.state.answer3}</span>
+            </div>
           </div>
-          <div> 
-            <span className={fact.trivia}>Answer: {this.state.answer2}</span>
-          </div>
-          <div > 
-            <span className={fact.trivia}>Question: {this.state.question3}</span>
-          </div>
-          <div> 
-            <span className={fact.trivia}>Answer: {this.state.answer3}</span>
-          </div>
+
         </div>
         )
     }
