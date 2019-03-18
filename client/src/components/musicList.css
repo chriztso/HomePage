@@ -8,6 +8,9 @@
 
 .musicHeader{
     border: 1px solid white;
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
 }
 
 .musicHeaderText{
@@ -15,8 +18,10 @@
 }
 
 .musicInput{
-    width: 85%;
-    background: lightgrey;
+    width: 75%;
+    border-radius: 4px;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 
 .musicItem{
@@ -27,4 +32,9 @@
 .image{
     width: 50px; 
     height: 50px;
+}
+
+.addButton{
+    border-radius: 4px;
+    background-color: yellow;
 }

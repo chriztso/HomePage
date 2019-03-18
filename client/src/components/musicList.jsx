@@ -13,6 +13,7 @@ class MusicList extends React.Component{
     this.addMusic = this.addMusic.bind(this);  
     this.submitMusic = this.submitMusic.bind(this);    
     }
+    
 componentDidMount(){
   this.getMusic();
 }
@@ -50,11 +51,15 @@ submitMusic(){
         return (
           <div className={music.musicStyle}>
           <div className={music.musicHeader}>
-            <h3 className={music.musicHeaderText}> Music </h3>
-            <img src="https://s3.us-east-2.amazonaws.com/chrismvp/headphones.png" className={music.image}/>
+            <div>
+             <h3 className={music.musicHeaderText}> Music </h3>
+            </div>
+            <div>
+              <img src="https://s3.us-east-2.amazonaws.com/chrismvp/headphones.png" className={music.image}/>
+            </div>
           </div>
           <input type="text" className={music.musicInput} onChange={this.addMusic}></input>
-          <input type="submit" value="Add" onClick = {this.submitMusic}></input>
+          <input type="submit" value="+" onClick = {this.submitMusic} className={music.addButton}></input>
           <div>
             {list}  
           </div>
