@@ -49,6 +49,16 @@ app.get('/people', (req, res) => {
     })
 })
 
+app.get('/photos', (req, res) => {
+    db.getPhotos((err, data) => {
+       if(err){
+           res.status(404).send(err);
+           return;
+       }
+       res.status(200).send(data);
+    })
+})
+
 app.post('/tasks', (req, res) => {
     console.log('HERE', req.body);
     db.addTasks(req.body.tasks, (err, data) => {
@@ -109,6 +119,16 @@ app.delete('/tasks', (req, res) => {
 
 app.delete('/media', (req, res) => {
     db.deleteMedia((err, data) => {
+        if(err){
+            console.log(err);
+            return;
+        }
+        res.status(201).send(data);
+    })
+})
+
+app.delete('/music', (req, res) => {
+    db.deleteMusic((err, data) => {
         if(err){
             console.log(err);
             return;
