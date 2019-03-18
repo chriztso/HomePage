@@ -6,24 +6,37 @@
 }
 
 .mediaHeader{
+    display: flex;
+    flex-direction: row;
     border: 1px solid white;
+    padding-left: 10px;
 }
 
 .mediaHeaderText{
     color: white;
+    padding-top: 10px;
 }
 
 .mediaInput{
-    width: 95%;
-    background: lightgrey;
+    width: 75%;
+    border-radius: 4px;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 
 .image{
-    width: 50px;
-    height: 50px;
+    padding-left: 10px;
+    padding-top: 10px;
+    width: 40px;
+    height: 40px;
 }
 
 .mediaItem{
     border: 1px solid white;
     color: white;
+}
+
+.addButton{
+    border-radius: 4px;
+    background-color: yellow;
 }

@@ -63,12 +63,16 @@ class MediaList extends React.Component{
      return (
           <div className={media.mediaStyle}>
           <div className={media.mediaHeader}>
-            <h3 className={media.mediaHeaderText}> Movies/TV Shows </h3>
-            <input type="submit" value="Clear" onClick = {this.deleteMedia}></input>
-            <img src="https://s3.us-east-2.amazonaws.com/chrismvp/video.png" className={media.image}/>
+            <div>
+              <h3 className={media.mediaHeaderText}> Movies/TV Shows </h3>
+            </div>
+            <div>
+              <img src="https://s3.us-east-2.amazonaws.com/chrismvp/video.png" className={media.image}/>
+              <input type="submit" value="x" onClick = {this.deleteMedia}></input>
+            </div>
           </div>
           <input type="text" className={media.mediaInput} onChange={this.addMedia}></input>
-          <input type="submit" value="add" onClick={this.submitMedia}></input>
+          <input type="submit" value="+" onClick={this.submitMedia} className={media.addButton}></input>
           <div>
              {list}
           </div>
