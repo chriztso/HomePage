@@ -12,7 +12,8 @@ class PeopleList extends React.Component{
     this.getPeople = this.getPeople.bind(this);
     this.addPeople = this.addPeople.bind(this);
     this.submitPeople = this.submitPeople.bind(this);
-    this.deletePeople = this.deletePeople.bind(this);    
+    this.deletePeople = this.deletePeople.bind(this);  
+    this.deletePerson = this.deletePerson.bind(this);    
     }
     
    componentDidMount(){
@@ -46,27 +47,23 @@ class PeopleList extends React.Component{
       })
    }
     
-   deletePeople(){
+  deletePeople(){
     axios.delete('/people')
     .then(() => {this.getPeople()})
     .catch((err) => {
         console.log(err);
     }) 
-  }   
+  }
+  
+  
+deletePerson(id){
+  axios.delete('/deletePerson', {data : { number : id}})
+  .then(() => {this.getPeople()})
+  .catch((err) => {console.log(err);})
+}
   
   render(){
-      var list = this.state.allPeople.map(person => 
-        <div className={people.peopleItem} >
-        <div className={people.text}>
-         {person.people} 
-        </div>
-        <span className={people.Buttons}>
-          <input type="submit" value="-" ></input>
-          <input type="submit" value="x"></input>
-        </span>
-        </div>  
-    );
-        return (
+    return (
           <div className={people.peopleStyle}>
           <div className={people.peopleHeader}>
             <div>
@@ -85,11 +82,33 @@ class PeopleList extends React.Component{
           <input type="text" className = {people.peopleInput} onChange={this.addPeople}></input>
           <input type="submit" value="+" onClick={this.submitPeople} className={people.addButton}></input>
           <div>
-            {list}
+            <PeopleList1 people={this.state.allPeople} deletePerson={this.deletePerson}/>
           </div>  
           </div>   
         )
     }
+}
+
+const PeopleList1 = (props) => {
+  return(
+    props.people.map(person => 
+      <PersonItem1 person ={person} deletePerson = {props.deletePerson}/>
+    )
+  )
+}
+
+const PersonItem1 = (props) => {
+return(
+  <div className={people.peopleItem} > 
+  <div className={people.text} >
+    {props.person.people}
+  </div>
+    <span className={people.Buttons}>
+      <input type="submit" value="-" ></input>
+      <input type="submit" value="x" onClick={() => {props.deletePerson(props.person.id)}}></input>
+    </span>
+  </div>  
+)
 }
 
 export default PeopleList;
