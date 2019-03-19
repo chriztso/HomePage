@@ -44,8 +44,8 @@
 }
 
 .Buttons{
-    position: relative; 
-    left: 70px;
+    position: absolute; 
+    right: 130px;
 }
 
 .text{
@@ -55,4 +55,9 @@
 .clearAll{
     position: relative;
     left: 33px;
+}
+
+.innerDiv{
+    display: flex;
+    flex-direction: row;
 }
