@@ -12,7 +12,8 @@ class MusicList extends React.Component{
     this.getMusic = this.getMusic.bind(this); 
     this.addMusic = this.addMusic.bind(this);  
     this.submitMusic = this.submitMusic.bind(this); 
-    this.deleteMusic = this.deleteMusic.bind(this);    
+    this.deleteMusic = this.deleteMusic.bind(this);  
+    this.deleteMusicOne = this.deleteMusicOne.bind(this);    
     }
     
 componentDidMount(){
@@ -51,20 +52,16 @@ deleteMusic(){
   .catch((err) => {
       console.log(err);
   }) 
-}   
+}
+
+deleteMusicOne(id){
+  axios.delete('/deleteMusicOne', {data : { number : id}})
+  .then(() => {this.getMusic()})
+  .catch((err) => {console.log(err);})
+}
    
     render(){
-        var list = this.state.allMusic.map(musics => 
-            <div className={music.musicItem} > 
-              <div className={music.text}>
-                {musics.music} 
-              </div>
-              <span className={music.Buttons}>
-               <input type="submit" value="-" ></input>
-               <input type="submit" value="x"></input>
-              </span>
-            </div>  
-        );
+      
         return (
           <div className={music.musicStyle}>
           <div className={music.musicHeader}>
@@ -81,11 +78,34 @@ deleteMusic(){
           <input type="text" className={music.musicInput} onChange={this.addMusic}></input>
           <input type="submit" value="+" onClick = {this.submitMusic} className={music.addButton}></input>
           <div>
-            {list}  
+            <MusicList1 music={this.state.allMusic} deleteMusicOne={this.deleteMusicOne}/> 
           </div>
           </div>   
         )
     }
+}
+
+
+const MusicList1 = (props) => {
+  return(
+    props.music.map(music => 
+      <MusicItem1 music ={music} deleteMusicOne = {props.deleteMusicOne}/>
+    )
+  )
+}
+
+const MusicItem1 = (props) => {
+return(
+  <div className={music.musicItem} > 
+  <div className={music.text} >
+    {props.music.music}
+  </div>
+    <span className={music.Buttons}>
+      <input type="submit" value="-" ></input>
+      <input type="submit" value="x" onClick={() => {props.deleteMusicOne(props.music.id)}}></input>
+    </span>
+  </div>  
+)
 }
 
 export default MusicList;

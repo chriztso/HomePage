@@ -168,6 +168,17 @@ var deleteOneTask = (id, callback) => {
     })
 }
 
+var deleteOneMusic = (id, callback) => {
+    var query = `DELETE FROM music where id =${id}`;
+    connection.query(query, (err, data) => {
+        if(err){
+            callback(err, null);
+            return;
+        }
+        callback(null, data);
+    })
+}
+
 exports.addTasks = addTasks;
 exports.getTasks = getTasks;
 exports.getMusic = getMusic;
@@ -182,3 +193,4 @@ exports.deletePeople = deletePeople;
 exports.deleteMusic = deleteMusic;
 exports.getPhotos = getPhotos;
 exports.deleteOneTask = deleteOneTask;
+exports.deleteOneMusic = deleteOneMusic;
