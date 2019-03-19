@@ -190,7 +190,7 @@ var deletePerson = (id, callback) => {
     })
 }
 
-var deleteMedia = (id, callback) => {
+var deleteMediaOne = (id, callback) => {
     var query = `DELETE FROM media where id =${id}`;
     connection.query(query, (err, data) => {
         if(err){
@@ -261,7 +261,7 @@ exports.getPhotos = getPhotos;
 exports.deleteOneTask = deleteOneTask;
 exports.deleteOneMusic = deleteOneMusic;
 exports.deletePerson = deletePerson;
-exports.deleteMedia = deleteMedia;
+exports.deleteMediaOne = deleteMediaOne;
 exports.updateMusic = updateMusic;
 exports.updatePeople = updatePeople;
 exports.updateMedia = updateMedia;

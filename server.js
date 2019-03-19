@@ -179,7 +179,7 @@ app.delete('/deletePerson', (req, res) => {
 })
 
 app.delete('/deleteMedia', (req, res) => {
-    db.deleteMedia(req.body.number, (err, data) => {
+    db.deleteMediaOne(req.body.number, (err, data) => {
         if(err){
             console.log(err);
             return;
