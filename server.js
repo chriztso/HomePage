@@ -221,4 +221,15 @@ app.put('/updateMedia', (req, res) => {
     })
 })
 
+app.put('/updateTasks', (req, res) => {
+    console.log("HERE", req.body.number, req.body.text);
+    db.updateTasks(req.body.number, req.body.text, (err, data) => {
+        if(err){
+            console.log(err);
+            return;
+        }
+        res.status(201).send(data);
+    })
+})
+
 app.listen(port, console.log('Listening at 3000!'));

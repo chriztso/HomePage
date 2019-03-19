@@ -234,6 +234,16 @@ var updateMedia = (id, text, callback) => {
     })
 }
 
+var updateTasks = (id, text, callback) => {
+    var query = `UPDATE tasks SET tasks = '${text}' WHERE id = ${id}`;
+    connection.query(query, (err, data) => {
+        if(err){
+            callback(err, null);
+            return;
+        }
+        callback(null, data);
+    })
+}
 
 exports.addTasks = addTasks;
 exports.getTasks = getTasks;
@@ -255,3 +265,4 @@ exports.deleteMedia = deleteMedia;
 exports.updateMusic = updateMusic;
 exports.updatePeople = updatePeople;
 exports.updateMedia = updateMedia;
+exports.updateTasks = updateTasks;
