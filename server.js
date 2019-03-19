@@ -60,7 +60,7 @@ app.get('/photos', (req, res) => {
 })
 
 app.post('/tasks', (req, res) => {
-    console.log('HERE', req.body);
+    console.log('HERE', req.body.tasks);
     db.addTasks(req.body.tasks, (err, data) => {
         if(err){
             console.log(err);
@@ -139,6 +139,16 @@ app.delete('/music', (req, res) => {
 
 app.delete('/people', (req, res) => {
     db.deletePeople((err, data) => {
+        if(err){
+            console.log(err);
+            return;
+        }
+        res.status(201).send(data);
+    })
+})
+
+app.delete('/deleteOne', (req, res) => {
+    db.deleteOneTask(req.body.number, (err, data) => {
         if(err){
             console.log(err);
             return;
