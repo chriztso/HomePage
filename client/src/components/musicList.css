@@ -50,10 +50,16 @@
 }
 
 .Buttons{
-    position: relative; 
-    left: 140px;
+    position: absolute; 
+    left: 520px;
 }
 
 .text{
     width: 20%;
+}
+
+
+.innerDiv{
+    display: flex;
+    flex-direction: row;
 }
