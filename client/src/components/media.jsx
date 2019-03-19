@@ -116,19 +116,6 @@ const MediaList1 = (props) => {
   )
 }
 
-// const MediaItem1 = (props) => {
-// return(
-//   <div className={media.mediaItem} > 
-//   <div className={media.text} >
-//     {props.media.media}
-//   </div>
-//     <span className={media.Buttons}>
-//       <input type="submit" value="-" ></input>
-//       <input type="submit" value="x" onClick={() => {props.deleteMediaOne(props.media.id)}}></input>
-//     </span>
-//   </div>  
-// )
-// }
 class MediaItem1 extends React.Component{
   constructor(props){
     super(props);

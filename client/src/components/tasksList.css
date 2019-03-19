@@ -47,15 +47,20 @@
 }
 
 .Buttons{
-    position: relative; 
-    left: 70px;
+    position: absolute; 
+    left: 220px;
 }
 
 .text{
-    width: 50%;
+    width: 20%;
 }
 
 .clearAll{
     position: relative;
     left: 120px;
+}
+
+.innerDiv{
+    display: flex;
+    flex-direction: row;
 }
