@@ -13,6 +13,7 @@ class TasksList extends React.Component{
     this.addTask = this.addTask.bind(this);
     this.submitTask = this.submitTask.bind(this);
     this.deleteTasks = this.deleteTasks.bind(this);
+    this.deleteTask = this.deleteTask.bind(this);
     }
     
     componentDidMount(){
@@ -53,19 +54,25 @@ class TasksList extends React.Component{
         }) 
     }
 
+    deleteTask(id){
+      axios.delete('/deleteOne', {data : { number : id}})
+      .then(() => {this.getTasks()})
+      .catch((err) => {console.log(err);})
+    }
+
     render(){
          
-        var list = this.state.allTasks.map(task => 
-            <div className={tasks.taskItem} > 
-            <div className={tasks.text}>
-              {task.tasks} 
-            </div>
-              <span className={tasks.Buttons}>
-                <input type="submit" value="-" ></input>
-                <input type="submit" value="x"></input>
-              </span>
-            </div>  
-        );
+        // var list = this.state.allTasks.map(task => 
+        //     <div className={tasks.taskItem} > 
+        //     <div className={tasks.text} onClick={this.deleteTask}>
+        //       {task.tasks} 
+        //     </div>
+        //       <span className={tasks.Buttons} >
+        //         <input type="submit" value="-" ></input>
+        //         <input type="submit" value="x"></input>
+        //       </span>
+        //     </div>  
+        // );
         return (
           <div className={tasks.tasksStyle}>
           <div className={tasks.tasksHeader}>
@@ -86,12 +93,37 @@ class TasksList extends React.Component{
           <input type="text" className={tasks.tasksInput} onChange = {this.addTask}></input>
           <input type="submit" value="+" onClick = {this.submitTask} className={tasks.addButton}></input>
           <div>
-             {list}
+             <TaskList1 tasks={this.state.allTasks} deleteTask={this.deleteTask}/>
           </div>
           </div>   
         )
     }
 }
+
+
+const TaskList1 = (props) => {
+    return(
+      props.tasks.map(task => 
+        <TaskItem1 task ={task} deleteTask = {props.deleteTask}/>
+      )
+    )
+}
+
+const TaskItem1 = (props) => {
+  return(
+    <div className={tasks.taskItem} > 
+    <div className={tasks.text} >
+      {props.task.tasks}
+    </div>
+      <span className={tasks.Buttons}>
+        <input type="submit" value="-" ></input>
+        <input type="submit" value="x" onClick={() => {props.deleteTask(props.task.id)}}></input>
+      </span>
+    </div>  
+  )
+}
+
+
 
 
 
