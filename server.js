@@ -188,4 +188,37 @@ app.delete('/deleteMedia', (req, res) => {
     })
 })
 
+app.put('/updateMusic', (req, res) => {
+    console.log("HERE", req.body.number, req.body.text);
+    db.updateMusic(req.body.number, req.body.text, (err, data) => {
+        if(err){
+            console.log(err);
+            return;
+        }
+        res.status(201).send(data);
+    })
+})
+
+app.put('/updatePeople', (req, res) => {
+    console.log("HERE", req.body.number, req.body.text);
+    db.updatePeople(req.body.number, req.body.text, (err, data) => {
+        if(err){
+            console.log(err);
+            return;
+        }
+        res.status(201).send(data);
+    })
+})
+
+app.put('/updateMedia', (req, res) => {
+    console.log("HERE", req.body.number, req.body.text);
+    db.updateMedia(req.body.number, req.body.text, (err, data) => {
+        if(err){
+            console.log(err);
+            return;
+        }
+        res.status(201).send(data);
+    })
+})
+
 app.listen(port, console.log('Listening at 3000!'));

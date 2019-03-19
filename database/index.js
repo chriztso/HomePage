@@ -201,6 +201,40 @@ var deleteMedia = (id, callback) => {
     })
 }
 
+var updateMusic = (id, text, callback) => {
+    var query = `UPDATE music SET music = '${text}' WHERE id = ${id}`;
+    connection.query(query, (err, data) => {
+        if(err){
+            callback(err, null);
+            return;
+        }
+        callback(null, data);
+    })
+}
+
+var updatePeople = (id, text, callback) => {
+    var query = `UPDATE people SET people = '${text}' WHERE id = ${id}`;
+    connection.query(query, (err, data) => {
+        if(err){
+            callback(err, null);
+            return;
+        }
+        callback(null, data);
+    })
+}
+
+var updateMedia = (id, text, callback) => {
+    var query = `UPDATE media SET media = '${text}' WHERE id = ${id}`;
+    connection.query(query, (err, data) => {
+        if(err){
+            callback(err, null);
+            return;
+        }
+        callback(null, data);
+    })
+}
+
+
 exports.addTasks = addTasks;
 exports.getTasks = getTasks;
 exports.getMusic = getMusic;
@@ -218,3 +252,6 @@ exports.deleteOneTask = deleteOneTask;
 exports.deleteOneMusic = deleteOneMusic;
 exports.deletePerson = deletePerson;
 exports.deleteMedia = deleteMedia;
+exports.updateMusic = updateMusic;
+exports.updatePeople = updatePeople;
+exports.updateMedia = updateMedia;
