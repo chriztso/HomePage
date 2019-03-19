@@ -190,6 +190,17 @@ var deletePerson = (id, callback) => {
     })
 }
 
+var deleteMedia = (id, callback) => {
+    var query = `DELETE FROM media where id =${id}`;
+    connection.query(query, (err, data) => {
+        if(err){
+            callback(err, null);
+            return;
+        }
+        callback(null, data);
+    })
+}
+
 exports.addTasks = addTasks;
 exports.getTasks = getTasks;
 exports.getMusic = getMusic;
@@ -206,3 +217,4 @@ exports.getPhotos = getPhotos;
 exports.deleteOneTask = deleteOneTask;
 exports.deleteOneMusic = deleteOneMusic;
 exports.deletePerson = deletePerson;
+exports.deleteMedia = deleteMedia;

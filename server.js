@@ -178,4 +178,14 @@ app.delete('/deletePerson', (req, res) => {
     })
 })
 
+app.delete('/deleteMedia', (req, res) => {
+    db.deleteMedia(req.body.number, (err, data) => {
+        if(err){
+            console.log(err);
+            return;
+        }
+        res.status(201).send(data);
+    })
+})
+
 app.listen(port, console.log('Listening at 3000!'));

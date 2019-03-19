@@ -13,7 +13,8 @@ class MediaList extends React.Component{
     this.getMedia = this.getMedia.bind(this);
     this.addMedia = this.addMedia.bind(this);
     this.submitMedia = this.submitMedia.bind(this);
-    this.deleteMedia = this.deleteMedia.bind(this);    
+    this.deleteMedia = this.deleteMedia.bind(this);  
+    this.deleteMediaOne = this.deleteMediaOne.bind(this);    
     }
 
   componentDidMount(){
@@ -53,18 +54,16 @@ class MediaList extends React.Component{
             console.log(err);
         }) 
     }  
+   
+    
+  deleteMediaOne(id){
+    axios.delete('/deleteMedia', {data : { number : id}})
+    .then(() => {this.getMedia()})
+    .catch((err) => {console.log(err);})
+  }
+
     render(){
-      var list = this.state.allMedia.map(mediaOne => 
-        <div className={media.mediaItem} > 
-          <div className={media.text}>
-            {mediaOne.media} 
-          </div>  
-          <span className={media.Buttons}>
-           <input type="submit" value="-" ></input>
-           <input type="submit" value="+"></input>
-          </span>
-        </div>  
-    );
+      
      return (
           <div className={media.mediaStyle}>
           <div className={media.mediaHeader}>
@@ -81,11 +80,34 @@ class MediaList extends React.Component{
           <input type="text" className={media.mediaInput} onChange={this.addMedia}></input>
           <input type="submit" value="+" onClick={this.submitMedia} className={media.addButton}></input>
           <div>
-             {list}
+             <MediaList1 media = {this.state.allMedia} deleteMediaOne={this.deleteMediaOne} />
           </div>
           </div>   
         )
     }
+}
+
+
+const MediaList1 = (props) => {
+  return(
+    props.media.map(media => 
+      <MediaItem1 media ={media} deleteMediaOne = {props.deleteMediaOne}/>
+    )
+  )
+}
+
+const MediaItem1 = (props) => {
+return(
+  <div className={media.mediaItem} > 
+  <div className={media.text} >
+    {props.media.media}
+  </div>
+    <span className={media.Buttons}>
+      <input type="submit" value="-" ></input>
+      <input type="submit" value="x" onClick={() => {props.deleteMediaOne(props.media.id)}}></input>
+    </span>
+  </div>  
+)
 }
 
 export default MediaList;
