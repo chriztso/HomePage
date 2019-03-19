@@ -62,17 +62,6 @@ class TasksList extends React.Component{
 
     render(){
          
-        // var list = this.state.allTasks.map(task => 
-        //     <div className={tasks.taskItem} > 
-        //     <div className={tasks.text} onClick={this.deleteTask}>
-        //       {task.tasks} 
-        //     </div>
-        //       <span className={tasks.Buttons} >
-        //         <input type="submit" value="-" ></input>
-        //         <input type="submit" value="x"></input>
-        //       </span>
-        //     </div>  
-        // );
         return (
           <div className={tasks.tasksStyle}>
           <div className={tasks.tasksHeader}>
